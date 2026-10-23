@@ -1,4 +1,4 @@
-# Iloveshriyasboobies
+grudgaurd
 
 Build "Grid Guard" – a frontend-only electricity theft detection dashboard mockup (React + Tailwind + Recharts + Lucide icons). No backend, no APIs, no auth. All data is hardcoded sample data in one shared file, clearly labeled "Demo Data".
 
@@ -24,13 +24,6 @@ Skip entirely (show "Coming soon" placeholder page only): Live Monitoring, Consu
 
 Rules: Single-page app, no localStorage, no CSV export, no login. Keep code compact and clean. Status changes only need to work in React state.
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://iloveshriyasboobies.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8e9d06dd-9f16-409d-b991-769169c3164e).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
