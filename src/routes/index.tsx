@@ -15,7 +15,7 @@ function Overview() {
   const { meters } = useMeters();
   const t = totals(meters);
   const flagged = meters.filter((m) => m.severity !== "normal");
-  const pie = (["normal", "suspicious", "high"] as const).map((s) => ({ name: s === "high" ? "High alert" : s[0].toUpperCase() + s.slice(1), value: meters.filter((m) => m.severity === s).length, s }));
+  const pie = (["normal", "suspicious", "high"] as const).map((s) => ({ name: s === "high" ? "High alert" : s[0]!.toUpperCase() + s.slice(1), value: meters.filter((m) => m.severity === s).length, s }));
   const top = [...flagged].sort((a, b) => b.unaccounted - a.unaccounted || b.confidence - a.confidence).slice(0, 6);
   return (
     <>

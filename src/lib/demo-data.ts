@@ -64,5 +64,5 @@ export function totals(meters = METERS) {
 const DAY_SHARE = [0.13, 0.14, 0.15, 0.14, 0.15, 0.13, 0.16];
 export function dailySeries() {
   const t = totals();
-  return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => ({ day, supplied: Math.round(t.supplied * DAY_SHARE[i]!), consumed: Math.round(t.consumed * DAY_SHARE[i]) }));
+  return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => ({ day, supplied: Math.round(t.supplied * DAY_SHARE[i]!), consumed: Math.round(t.consumed * DAY_SHARE[i]!) }));
 }
