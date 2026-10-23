@@ -24,8 +24,8 @@ const HIGH = [3, 8, 14, 21, 27, 33];
 const SUSP = [1, 5, 7, 11, 12, 16, 19, 24, 29, 31, 36, 38];
 const ANOMALIES = ["Meter bypass pattern", "Sudden consumption drop", "Reverse reading", "Zero consumption, load present", "Tamper signal", "Night-time spike mismatch"];
 
-const raw = Array.from({ length: 40 }, (_, i) => 200 + ((i * 37) % 150));
-raw[39] = 10920 - raw.slice(0, 39).reduce((a, b) => a + b, 0);
+const raw = Array.from({ length: 40 }, (_, i) => 233 + ((i * 37) % 81));
+raw[39] = 10920 - raw.slice(0, 39).reduce((a, b) => a! + b!, 0)!;
 
 export const METERS: Meter[] = raw.map((consumption, i) => {
   const severity: Severity = HIGH.includes(i) ? "high" : SUSP.includes(i) ? "suspicious" : "normal";
@@ -34,12 +34,12 @@ export const METERS: Meter[] = raw.map((consumption, i) => {
   const previous = 4000 + i * 213;
   return {
     id: `MTR-${String(1001 + i)}`, consumerId: `CON-${String(52000 + i * 7)}`,
-    feeder: FEEDERS[Math.floor(t / 2)], transformer: `TR-${t + 1}`, location: AREAS[t],
+    feeder: FEEDERS[Math.floor(t / 2)]!, transformer: `TR-${t + 1}`, location: AREAS[t]!,
     lat: 26.80 + (t % 4) * 0.035 + ((i * 13) % 10) * 0.003, lng: 80.90 + Math.floor(t / 4) * 0.06 + (t % 2) * 0.025 + ((i * 7) % 10) * 0.002,
     previous, current: previous + consumption, consumption, expected: consumption + unaccounted, unaccounted,
     tariff: TARIFF, fixedCharge: FIXED, bill: calcBill(consumption, TARIFF, FIXED), severity,
     status: severity === "normal" ? "Normal" : "Open",
-    anomaly: severity === "normal" ? "—" : ANOMALIES[i % ANOMALIES.length],
+    anomaly: severity === "normal" ? "—" : ANOMALIES[i % ANOMALIES.length]!,
     confidence: severity === "high" ? 82 + (i % 12) : severity === "suspicious" ? 58 + (i % 15) : 0,
   };
 });
@@ -64,5 +64,5 @@ export function totals(meters = METERS) {
 const DAY_SHARE = [0.13, 0.14, 0.15, 0.14, 0.15, 0.13, 0.16];
 export function dailySeries() {
   const t = totals();
-  return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => ({ day, supplied: Math.round(t.supplied * DAY_SHARE[i]), consumed: Math.round(t.consumed * DAY_SHARE[i]) }));
+  return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, i) => ({ day, supplied: Math.round(t.supplied * DAY_SHARE[i]!), consumed: Math.round(t.consumed * DAY_SHARE[i]) }));
 }

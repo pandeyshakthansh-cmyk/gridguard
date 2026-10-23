@@ -13,7 +13,7 @@ export const Route = createFileRoute("/supply")({
 function Supply() {
   const feeders = feederStats();
   const t = totals();
-  const [sel, setSel] = useState(feeders[0].name);
+  const [sel, setSel] = useState(feeders[0]!.name);
   const f = feeders.find((x) => x.name === sel)!;
   const stages = [
     { icon: Factory, label: "Grid", value: `${num(t.supplied)} kWh` },

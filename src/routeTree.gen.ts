@@ -12,8 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as BillingRouteImport } from './routes/billing'
 import { Route as LiveRouteImport } from './routes/live'
+import { Route as LocationRouteImport } from './routes/location'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SupplyRouteImport } from './routes/supply'
+import { Route as TheftRouteImport } from './routes/theft'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,9 +34,19 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BillingRoute = BillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LiveRoute = LiveRouteImport.update({
   id: '/live',
   path: '/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationRoute = LocationRouteImport.update({
+  id: '/location',
+  path: '/location',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsRoute = SettingsRouteImport.update({
@@ -40,43 +54,97 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupplyRoute = SupplyRouteImport.update({
+  id: '/supply',
+  path: '/supply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheftRoute = TheftRouteImport.update({
+  id: '/theft',
+  path: '/theft',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/billing': typeof BillingRoute
   '/live': typeof LiveRoute
+  '/location': typeof LocationRoute
   '/settings': typeof SettingsRoute
+  '/supply': typeof SupplyRoute
+  '/theft': typeof TheftRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/billing': typeof BillingRoute
   '/live': typeof LiveRoute
+  '/location': typeof LocationRoute
   '/settings': typeof SettingsRoute
+  '/supply': typeof SupplyRoute
+  '/theft': typeof TheftRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/billing': typeof BillingRoute
   '/live': typeof LiveRoute
+  '/location': typeof LocationRoute
   '/settings': typeof SettingsRoute
+  '/supply': typeof SupplyRoute
+  '/theft': typeof TheftRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/alerts' | '/analytics' | '/live' | '/settings'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/analytics'
+    | '/billing'
+    | '/live'
+    | '/location'
+    | '/settings'
+    | '/supply'
+    | '/theft'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/alerts' | '/analytics' | '/live' | '/settings'
-  id: '__root__' | '/' | '/alerts' | '/analytics' | '/live' | '/settings'
+  to:
+    | '/'
+    | '/alerts'
+    | '/analytics'
+    | '/billing'
+    | '/live'
+    | '/location'
+    | '/settings'
+    | '/supply'
+    | '/theft'
+  id:
+    | '__root__'
+    | '/'
+    | '/alerts'
+    | '/analytics'
+    | '/billing'
+    | '/live'
+    | '/location'
+    | '/settings'
+    | '/supply'
+    | '/theft'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlertsRoute: typeof AlertsRoute
   AnalyticsRoute: typeof AnalyticsRoute
+  BillingRoute: typeof BillingRoute
   LiveRoute: typeof LiveRoute
+  LocationRoute: typeof LocationRoute
   SettingsRoute: typeof SettingsRoute
+  SupplyRoute: typeof SupplyRoute
+  TheftRoute: typeof TheftRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,11 +170,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/billing': {
+      id: '/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof BillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/live': {
       id: '/live'
       path: '/live'
       fullPath: '/live'
       preLoaderRoute: typeof LiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/location': {
+      id: '/location'
+      path: '/location'
+      fullPath: '/location'
+      preLoaderRoute: typeof LocationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings': {
@@ -116,6 +198,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/supply': {
+      id: '/supply'
+      path: '/supply'
+      fullPath: '/supply'
+      preLoaderRoute: typeof SupplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/theft': {
+      id: '/theft'
+      path: '/theft'
+      fullPath: '/theft'
+      preLoaderRoute: typeof TheftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlertsRoute: AlertsRoute,
   AnalyticsRoute: AnalyticsRoute,
+  BillingRoute: BillingRoute,
   LiveRoute: LiveRoute,
+  LocationRoute: LocationRoute,
   SettingsRoute: SettingsRoute,
+  SupplyRoute: SupplyRoute,
+  TheftRoute: TheftRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
