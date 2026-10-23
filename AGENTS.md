@@ -1,3 +1,9 @@
+# Grid Guard
+
+## Rules
+
+- Social share preview images must be absolute https URLs: build them in `src/lib/brand.ts` from the canonical published origin plus a CDN asset pointer, because social crawlers fetch the page server-side and cannot resolve relative URLs.
+
 <!-- LOVABLE:BEGIN -->
 > [!IMPORTANT]
 > This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
