@@ -5,8 +5,9 @@ import { Card, PageHeader } from "@/components/gg";
 import { feederStats, num, totals } from "@/lib/demo-data";
 import { cn } from "@/lib/utils";
 
+import { SHARE_IMAGE } from "@/lib/brand";
 export const Route = createFileRoute("/supply")({
-  head: () => ({ meta: [{ title: "Supply Distribution | Grid Guard" }, { name: "description", content: "Energy flow from grid to meters with losses per feeder." }, { property: "og:title", content: "Supply Distribution | Grid Guard" }, { property: "og:description", content: "Grid to meter energy flow and balance." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Supply Distribution | Grid Guard" }, { name: "description", content: "Energy flow from grid to meters with losses per feeder." }, { property: "og:title", content: "Supply Distribution | Grid Guard" }, { property: "og:description", content: "Grid to meter energy flow and balance." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: SHARE_IMAGE }, { name: "twitter:image", content: SHARE_IMAGE }] }),
   component: Supply,
 });
 

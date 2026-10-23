@@ -4,8 +4,9 @@ import { Search, X, Info } from "lucide-react";
 import { Card, PageHeader, SeverityBadge, sevColor, useMeters } from "@/components/gg";
 import { METERS, inr } from "@/lib/demo-data";
 
+import { SHARE_IMAGE } from "@/lib/brand";
 export const Route = createFileRoute("/location")({
-  head: () => ({ meta: [{ title: "Location Tracking | Grid Guard" }, { name: "description", content: "Schematic map of registered meters and infrastructure by severity." }, { property: "og:title", content: "Location Tracking | Grid Guard" }, { property: "og:description", content: "Registered meter locations by severity." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Location Tracking | Grid Guard" }, { name: "description", content: "Schematic map of registered meters and infrastructure by severity." }, { property: "og:title", content: "Location Tracking | Grid Guard" }, { property: "og:description", content: "Registered meter locations by severity." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: SHARE_IMAGE }, { name: "twitter:image", content: SHARE_IMAGE }] }),
   component: Location,
 });
 
