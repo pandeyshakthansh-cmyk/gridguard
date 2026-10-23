@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Card, PageHeader } from "@/components/gg";
 import { NETWORK, TARIFF, calcBill, inr, num, totals } from "@/lib/demo-data";
 
+import { SHARE_IMAGE } from "@/lib/brand";
 export const Route = createFileRoute("/billing")({
-  head: () => ({ meta: [{ title: "Billing | Grid Guard" }, { name: "description", content: "Billing summary and live electricity bill calculator." }, { property: "og:title", content: "Billing | Grid Guard" }, { property: "og:description", content: "Revenue, collections and bill calculator." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Billing | Grid Guard" }, { name: "description", content: "Billing summary and live electricity bill calculator." }, { property: "og:title", content: "Billing | Grid Guard" }, { property: "og:description", content: "Revenue, collections and bill calculator." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: SHARE_IMAGE }, { name: "twitter:image", content: SHARE_IMAGE }] }),
   component: Billing,
 });
 

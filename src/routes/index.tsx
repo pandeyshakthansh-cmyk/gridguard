@@ -4,8 +4,9 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 import { Card, Kpi, PageHeader, SeverityBadge, sevColor, useMeters } from "@/components/gg";
 import { NETWORK, dailySeries, inr, num, safePct, totals } from "@/lib/demo-data";
 
+import { SHARE_IMAGE } from "@/lib/brand";
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Overview | Grid Guard" }, { name: "description", content: "Grid Guard overview: supply, consumption, unaccounted energy and suspicious meters." }, { property: "og:title", content: "Overview | Grid Guard" }, { property: "og:description", content: "Electricity theft detection dashboard overview." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Overview | Grid Guard" }, { name: "description", content: "Grid Guard overview: supply, consumption, unaccounted energy and suspicious meters." }, { property: "og:title", content: "Overview | Grid Guard" }, { property: "og:description", content: "Electricity theft detection dashboard overview." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: SHARE_IMAGE }, { name: "twitter:image", content: SHARE_IMAGE }] }),
   component: Overview,
 });
 

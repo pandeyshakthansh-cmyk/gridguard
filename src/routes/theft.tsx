@@ -5,8 +5,9 @@ import { Card, PageHeader, SeverityBadge, useMeters } from "@/components/gg";
 import { safePct, type Meter, type Status } from "@/lib/demo-data";
 import { cn } from "@/lib/utils";
 
+import { SHARE_IMAGE } from "@/lib/brand";
 export const Route = createFileRoute("/theft")({
-  head: () => ({ meta: [{ title: "Theft Detection | Grid Guard" }, { name: "description", content: "Review meters flagged for potential theft or suspicious activity." }, { property: "og:title", content: "Theft Detection | Grid Guard" }, { property: "og:description", content: "Flagged meters with confidence scores and actions." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Theft Detection | Grid Guard" }, { name: "description", content: "Review meters flagged for potential theft or suspicious activity." }, { property: "og:title", content: "Theft Detection | Grid Guard" }, { property: "og:description", content: "Flagged meters with confidence scores and actions." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:image", content: SHARE_IMAGE }, { name: "twitter:image", content: SHARE_IMAGE }] }),
   component: Theft,
 });
 
