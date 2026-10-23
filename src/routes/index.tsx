@@ -31,11 +31,11 @@ function Overview() {
       <div className="mt-4 grid gap-4 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <h2 className="mb-3 font-semibold">Supplied vs Consumed (kWh)</h2>
-          <div className="h-64"><ResponsiveContainer><LineChart data={dailySeries()}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="day" fontSize={12} /><YAxis fontSize={12} width={40} /><Tooltip /><Legend /><Line dataKey="supplied" stroke="var(--primary)" strokeWidth={2} /><Line dataKey="consumed" stroke="var(--success)" strokeWidth={2} /></LineChart></ResponsiveContainer></div>
+          <div className="h-64"><ResponsiveContainer width="100%" height="100%"><LineChart data={dailySeries()}><CartesianGrid strokeDasharray="3 3" stroke="var(--border)" /><XAxis dataKey="day" fontSize={12} /><YAxis fontSize={12} width={40} /><Tooltip /><Legend /><Line dataKey="supplied" stroke="var(--primary)" strokeWidth={2} /><Line dataKey="consumed" stroke="var(--success)" strokeWidth={2} /></LineChart></ResponsiveContainer></div>
         </Card>
         <Card>
           <h2 className="mb-3 font-semibold">Meters by Severity</h2>
-          <div className="h-64"><ResponsiveContainer><PieChart><Pie data={pie} dataKey="value" nameKey="name" innerRadius={50} outerRadius={85}>{pie.map((p) => <Cell key={p.s} fill={sevColor(p.s)} />)}</Pie><Tooltip /><Legend /></PieChart></ResponsiveContainer></div>
+          <div className="h-64"><ResponsiveContainer width="100%" height="100%"><PieChart><Pie data={pie} dataKey="value" nameKey="name" innerRadius={50} outerRadius={85}>{pie.map((p) => <Cell key={p.s} fill={sevColor(p.s)} />)}</Pie><Tooltip /><Legend /></PieChart></ResponsiveContainer></div>
         </Card>
       </div>
       <div className="mt-4 grid gap-4 lg:grid-cols-3">
